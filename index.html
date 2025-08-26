@@ -1,8 +1,322 @@
 <!doctype html>
 <html lang="de">
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CED-Studien – Übersicht</title>
-  <h1>CED-Studien</h1>
-  <p>Aktuelle und kommende Studien – Kontakt: studien@beispiel.de</p>
+  <title>Laufende Studien – CED-Studienambulanz · Medizinische Universität Wien</title>
+  <meta name="description" content="Übersicht laufender Studien der CED-Studienambulanz an der Medizinischen Universität Wien für zuweisende Ärztinnen und Ärzte.">
+  <style>
+    :root{
+      --bg:#f6f6f7;
+      --surface:#ffffff;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --border:#e5e7eb;
+      --brand:#c47852;
+
+      /* Indikationsfarben */
+      --crohn-1:#cce5ff;
+      --crohn-2:#99ccff;
+      --colitis-1:#a3d790;
+      --colitis-2:#61b859;
+      --zoeliakie:#f7eda8;
+    }
+
+    /* Grundlayout */
+    html,body{margin:0;padding:0}
+    body{
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",Arial,"Apple Color Emoji","Segoe UI Emoji";
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.5;
+      padding:24px;
+    }
+    .container{
+      max-width:1200px;
+      margin:0 auto;
+    }
+
+    /* Kopfbereich */
+    header{
+      margin-bottom:16px;
+    }
+    h1{
+      margin:0 0 6px 0;
+      font-size:clamp(1.4rem,2.4vw,2rem);
+      letter-spacing:.2px;
+    }
+    h2{
+      margin:0 0 10px 0;
+      font-weight:600;
+      font-size:clamp(1rem,1.6vw,1.125rem);
+      color:var(--muted);
+    }
+    .note{
+      margin:4px 0 18px 0;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    /* Tabelle */
+    .card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:14px;
+      box-shadow:0 1px 2px rgba(0,0,0,.03);
+    }
+    .table-wrap{
+      overflow-x:auto;
+      border-radius:14px;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:860px; /* damit Spalten nicht zu schmal werden */
+    }
+    caption{
+      text-align:left;
+      font-weight:600;
+      padding:14px 16px 0 16px;
+    }
+    thead th{
+      position:sticky;
+      top:0;
+      background:var(--brand);
+      color:#fff;
+      text-align:left;
+      padding:12px 10px;
+      font-weight:700;
+      font-size:.95rem;
+      border-bottom:1px solid rgba(255,255,255,.25);
+    }
+    th, td{
+      padding:10px;
+      border-bottom:1px solid var(--border);
+      vertical-align:top;
+      font-size:.95rem;
+    }
+    tbody tr:last-child td{ border-bottom:0 }
+
+    /* Indikationszeilen (Hintergründe) */
+    tr.crohn-a { background:var(--crohn-1); }
+    tr.crohn-b { background:var(--crohn-2); }
+    tr.colitis-a{ background:var(--colitis-1); }
+    tr.colitis-b{ background:var(--colitis-2); color:#0b3a12; }
+    tr.zoeliakie{ background:var(--zoeliakie); }
+
+    /* Spaltenbreiten (soft) */
+    td[colspan] { background:transparent; }
+    td.w-breit { width:18ch; }
+    td.w-kurz  { width:8ch;  }
+
+    /* Legende / Fuß */
+    .legend, footer{
+      color:var(--muted);
+      font-size:.9rem;
+      margin-top:10px;
+    }
+    .legend code{
+      background:#eef2f7;
+      border:1px solid var(--border);
+      padding:1px 6px;
+      border-radius:6px;
+      margin-right:6px;
+      display:inline-block;
+    }
+
+    /* Druckfreundlich */
+    @media print{
+      body{ background:#fff; padding:0 }
+      .card{ border:0; box-shadow:none }
+      thead th{ position:static }
+      .table-wrap{ overflow:visible }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Laufende Studien</h1>
+      <h2>CED-Studienambulanz · Medizinische Universität Wien</h2>
+      <p class="note">Diese Übersicht dient ausschließlich der Information für zuweisende Ärztinnen und Ärzte.</p>
+    </header>
+
+    <section class="card">
+      <div class="table-wrap">
+        <table aria-describedby="legende">
+          <caption>Aktuelle und kommende Studien</caption>
+          <thead>
+            <tr>
+              <th scope="col">Studie</th>
+              <th scope="col">Phase</th>
+              <th scope="col">Wirkstoff</th>
+              <th scope="col">Indikation</th>
+              <th scope="col">Dauer</th>
+              <th scope="col">Einschluss-/Ausschlusskriterien (Auszug)</th>
+              <th scope="col">Placebo</th>
+              <th scope="col">Wirkmechanismus</th>
+              <th scope="col">Applikation</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <!-- Morbus Crohn -->
+            <tr class="crohn-a">
+              <td>MSD MK-7240-008</td>
+              <td class="w-kurz">3</td>
+              <td class="w-breit">Tulisokibart</td>
+              <td>Morbus Crohn</td>
+              <td>4&nbsp;Jahre</td>
+              <td>bis zu 3 unterschiedliche Wirkmechanismen (vorbehandelt möglich)</td>
+              <td>25&nbsp;%</td>
+              <td>TL1A-Antikörper</td>
+              <td>s.c.</td>
+            </tr>
+
+            <tr class="crohn-b">
+              <td>AbbVie M24-885</td>
+              <td class="w-kurz">2</td>
+              <td class="w-breit">Risankizumab–Lutikizumab–ABBV32&nbsp;(Kombi oder mono)</td>
+              <td>Morbus Crohn</td>
+              <td>96&nbsp;Wochen</td>
+              <td>Vorbehandlung erforderlich</td>
+              <td>0&nbsp;%</td>
+              <td>IL-23 und/oder IL-1α/β und/oder α4β7</td>
+              <td>s.c.</td>
+            </tr>
+
+            <tr class="crohn-a">
+              <td>Roche GA45331</td>
+              <td class="w-kurz">3</td>
+              <td class="w-breit">RO77901121</td>
+              <td>Morbus Crohn</td>
+              <td>6+&nbsp;Jahre</td>
+              <td>kein TL1A; keine Obergrenze bei Vortherapien</td>
+              <td>33&nbsp;%</td>
+              <td>TL1A-Antikörper</td>
+              <td>s.c.</td>
+            </tr>
+
+            <tr class="crohn-b">
+              <td>AstraZeneca AMALTHEA</td>
+              <td class="w-kurz">2a</td>
+              <td class="w-breit">AZD7798</td>
+              <td>Morbus Crohn</td>
+              <td>48&nbsp;Wochen</td>
+              <td>Vorbehandlung erforderlich</td>
+              <td>40&nbsp;%</td>
+              <td>anti-CCR9 IgG1</td>
+              <td>s.c.</td>
+            </tr>
+
+            <tr class="crohn-a">
+              <td>MORF-057-203</td>
+              <td class="w-kurz">2</td>
+              <td class="w-breit">MORF-057</td>
+              <td>Morbus Crohn</td>
+              <td>1&nbsp;Jahr</td>
+              <td>Vorbehandlung erforderlich</td>
+              <td>33&nbsp;%</td>
+              <td>α4β7</td>
+              <td>p.o.</td>
+            </tr>
+
+            <!-- Abstand -->
+            <tr><td colspan="9">&nbsp;</td></tr>
+
+            <!-- Colitis ulcerosa -->
+            <tr class="colitis-a">
+              <td>Gilead PALEKONA</td>
+              <td class="w-kurz">2</td>
+              <td class="w-breit">Tilpisertib Fosmecarbil</td>
+              <td>Colitis ulcerosa</td>
+              <td>52&nbsp;Wochen</td>
+              <td>—</td>
+              <td>25&nbsp;%</td>
+              <td>TPL2-Inhibitor</td>
+              <td>p.o.</td>
+            </tr>
+
+            <tr class="colitis-b">
+              <td>AMETRINE-1 GA45329</td>
+              <td class="w-kurz">3</td>
+              <td class="w-breit">RO77901121</td>
+              <td>Colitis ulcerosa</td>
+              <td>5&nbsp;Jahre</td>
+              <td>keine bisherige TL1A-Behandlung</td>
+              <td>40&nbsp;%</td>
+              <td>TL1A-Antikörper</td>
+              <td>s.c.</td>
+            </tr>
+
+            <tr class="colitis-a">
+              <td>Gilead SWIFT</td>
+              <td class="w-kurz">2</td>
+              <td class="w-breit">GS-1427 vs. Ustekinumab</td>
+              <td>Colitis ulcerosa</td>
+              <td>52&nbsp;Wochen</td>
+              <td>keine bisherige Vedolizumab-Behandlung</td>
+              <td>25&nbsp;% (nur Teil&nbsp;1)</td>
+              <td>α4β7, IL-12/23</td>
+              <td>p.o.</td>
+            </tr>
+
+            <tr class="colitis-b">
+              <td>MSD MK-7240-001</td>
+              <td class="w-kurz">3</td>
+              <td class="w-breit">Tulisokibart</td>
+              <td>Colitis ulcerosa</td>
+              <td>4&nbsp;Jahre</td>
+              <td>biologika-naiv</td>
+              <td>25&nbsp;%</td>
+              <td>TL1A-Antikörper</td>
+              <td>s.c.</td>
+            </tr>
+
+            <tr class="colitis-a">
+              <td>AbbVie M25-540</td>
+              <td class="w-kurz">3b</td>
+              <td class="w-breit">Risankizumab vs. Vedolizumab</td>
+              <td>Colitis ulcerosa</td>
+              <td>48&nbsp;Wochen</td>
+              <td>biologika-naiv</td>
+              <td>0&nbsp;%</td>
+              <td>IL-23 oder α4β7</td>
+              <td>i.v. / s.c.</td>
+            </tr>
+
+            <!-- Abstand -->
+            <tr><td colspan="9">&nbsp;</td></tr>
+
+            <!-- Zöliakie -->
+            <tr class="zoeliakie">
+              <td>Dr. Falk CEC-013/CEL</td>
+              <td class="w-kurz">2</td>
+              <td class="w-breit">ZED1227</td>
+              <td>Zöliakie</td>
+              <td>15&nbsp;Wochen</td>
+              <td>diagnostizierte Zöliakie ≥ 1&nbsp;Jahr; glutenfreie Diät ≥ 1&nbsp;Jahr; aktive Beschwerden</td>
+              <td>33&nbsp;%</td>
+              <td><i>TG2-Inhibitor</i></td>
+              <td>p.o.</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <div id="legende" class="legend" aria-live="polite">
+        <p><strong>Legende:</strong>
+          <code>s.c.</code> subkutan&nbsp;&nbsp;
+          <code>i.v.</code> intravenös&nbsp;&nbsp;
+          <code>p.o.</code> per os (oral)
+        </p>
+      </div>
+    </section>
+
+    <footer class="note" style="margin-top:16px">
+      Stand: <!-- Datum hier bei Bedarf pflegen --> August&nbsp;2025 · Kontakt: ced_studienteam@meduniwien.ac.at, +43 1 40400 62450
+    </footer>
+  </div>
+</body>
 </html>
