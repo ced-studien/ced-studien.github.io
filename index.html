@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=yes">
   <title>Laufende Studien – CED-Studienambulanz · Medizinische Universität Wien</title>
   <meta name="description" content="Übersicht laufender Studien der CED-Studienambulanz an der Medizinischen Universität Wien für zuweisende Ärztinnen und Ärzte.">
   <style>
@@ -31,31 +32,46 @@
       line-height:1.5;
       padding:24px;
     }
-    .container{
-      max-width:1200px;
-      margin:0 auto;
-    }
+    .container{ max-width:1200px; margin:0 auto; }
 
     /* Kopfbereich */
-    header{
-      margin-bottom:16px;
-    }
+    header{ margin-bottom:16px; }
     h1{
       margin:0 0 6px 0;
       font-size:clamp(1.4rem,2.4vw,2rem);
       letter-spacing:.2px;
     }
     h2{
-      margin:0 0 10px 0;
+      margin:0;
       font-weight:600;
       font-size:clamp(1rem,1.6vw,1.125rem);
       color:var(--muted);
     }
+
     .note{
-      margin:4px 0 18px 0;
+      margin:12px 0 10px 0;
       color:var(--muted);
       font-size:.95rem;
     }
+
+    /* Kontaktkarte (ohne Buttons) */
+    .contact-card{
+      margin:8px 0 16px 0;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-left:6px solid var(--brand);
+      border-radius:14px;
+      box-shadow:0 1px 2px rgba(0,0,0,.03);
+      padding:14px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:flex-start;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    address{ font-style:normal; }
+    .contact-lines{ color:var(--text); font-size:1rem; }
+    .contact-lines strong{ display:inline-block; margin-right:.5ch; }
 
     /* Tabelle */
     .card{
@@ -64,10 +80,7 @@
       border-radius:14px;
       box-shadow:0 1px 2px rgba(0,0,0,.03);
     }
-    .table-wrap{
-      overflow-x:auto;
-      border-radius:14px;
-    }
+    .table-wrap{ overflow-x:auto; border-radius:14px; }
     table{
       width:100%;
       border-collapse:collapse;
@@ -79,14 +92,10 @@
       padding:14px 16px 0 16px;
     }
     thead th{
-      position:sticky;
-      top:0;
-      background:var(--brand);
-      color:#fff;
-      text-align:left;
-      padding:12px 10px;
-      font-weight:700;
-      font-size:.95rem;
+      position:sticky; top:0;
+      background:var(--brand); color:#fff;
+      text-align:left; padding:12px 10px;
+      font-weight:700; font-size:.95rem;
       border-bottom:1px solid rgba(255,255,255,.25);
     }
     th, td{
@@ -97,7 +106,7 @@
     }
     tbody tr:last-child td{ border-bottom:0 }
 
-    /* Indikationszeilen (Hintergründe) */
+    /* Indikationszeilen */
     tr.crohn-a { background:var(--crohn-1); }
     tr.crohn-b { background:var(--crohn-2); }
     tr.colitis-a{ background:var(--colitis-1); }
@@ -138,7 +147,19 @@
     <header>
       <h1>Laufende Studien</h1>
       <h2>CED-Studienambulanz · Medizinische Universität Wien</h2>
+
+      <!-- Disclaimer über der Kontaktkarte -->
       <p class="note">Diese Übersicht dient ausschließlich der Information für zuweisende Ärztinnen und Ärzte.</p>
+
+      <!-- Kontakt (ohne Links/Buttons) -->
+      <div class="contact-card" role="complementary" aria-label="Kontakt">
+        <div class="contact-lines">
+          <address>
+            <strong>Kontakt:</strong>
+            ced_studienteam@meduniwien.ac.at · +43&nbsp;1&nbsp;40400&nbsp;62455
+          </address>
+        </div>
+      </div>
     </header>
 
     <section class="card">
@@ -315,7 +336,7 @@
     </section>
 
     <footer class="note" style="margin-top:16px">
-      Stand: <!-- Datum hier bei Bedarf pflegen --> August&nbsp;2025 · Kontakt: ced_studienteam@meduniwien.ac.at, +43 1 40400 62450
+      Stand: August&nbsp;2025 · Kontakt: ced_studienteam@meduniwien.ac.at, +43&nbsp;1&nbsp;40400&nbsp;62455
     </footer>
   </div>
 </body>
